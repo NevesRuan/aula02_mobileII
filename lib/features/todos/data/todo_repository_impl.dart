@@ -1,7 +1,7 @@
-import '../models/todo.dart';
-import '../services/todo_repository.dart';
-import '../utils/todo_remote_datasource.dart';
-import '../screens/todo_local_datasource.dart';
+import '../domain/todo_entity.dart';
+import '../domain/todo_repository.dart';
+import 'todo_remote_datasource.dart';
+import 'todo_local_datasource.dart';
 
 class TodoRepositoryImpl implements TodoRepository {
   final TodoRemoteDataSource _remote = TodoRemoteDataSource();
@@ -15,7 +15,7 @@ class TodoRepositoryImpl implements TodoRepository {
     await _local.saveLastSync(now);
 
     final lastSync = await _local.getLastSync();
-    final label = lastSync == null ? null : lastSync.toLocal().toString();
+    final label = lastSync?.toLocal().toString();
 
     return TodoFetchResult(
       todos: models.map((m) => Todo(id: m.id, title: m.title, completed: m.completed)).toList(),

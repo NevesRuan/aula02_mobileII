@@ -7,20 +7,21 @@
     main.dart
     ui/
       app_root.dart
-    screens/
-      app_errors.dart
-      todo_local_datasource.dart
-      todos_page.dart
-    widgets/
-      add_todo_dialog.dart
-      todo_model.dart
-    viewmodels/
-      todo_viewmodel.dart
-    models/
-      todo.dart
-    utils/
-      todo_remote_datasource.dart
-    services/
-      todo_repository.dart
-    repositories/
-      todo_repository_impl.dart
+    core/
+      errors/
+        app_errors.dart
+    features/
+      todos/
+        domain/
+          todo_entity.dart
+          todo_repository.dart
+        data/
+          todo_model.dart
+          todo_remote_datasource.dart
+          todo_local_datasource.dart
+          todo_repository_impl.dart
+        presentation/
+          todo_viewmodel.dart
+          todos_page.dart
+          widgets/
+            add_todo_dialog.dart
